@@ -1,0 +1,19 @@
+rails new getfood --api
+
+--------------------
+gem 'ransack'
+gem 'geocoder', '~> 1.5', '>= 1.5.1'
+gem 'active_model_serializers', '~> 0.10.2'
+--------------------
+
+rails db:create
+
+rails g model Category title
+rails g model Restaurant name description:text status:integer delivery_tax:float state city street neighborhood number complement reference cep latitude:float longitude:float category:references
+rails g model ProductCategory title restaurant:references
+rails g model Product name description:text price:float product_category:references
+rails g model Review value:integer restaurant:references
+rails g model Order name phone_number total_value:float address status:integer restaurant:references
+rails g model OrderProduct quantity:integer comment:text order:references product:references
+
+rails db:migrate
