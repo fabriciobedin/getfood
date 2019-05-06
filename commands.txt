@@ -17,3 +17,28 @@ rails g model Order name phone_number total_value:float address status:integer r
 rails g model OrderProduct quantity:integer comment:text order:references product:references
 
 rails db:migrate
+
+rails g controller Categories index --skip-routes
+rails g controller Restaurants index show search --skip-routes
+rails g controller Orders create show --skip-routes
+
+rails active_storage:install
+
+env../dev--------------------
+config.active_storage.service = :local
+Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+--------------------
+
+rails db:migrate
+
+touch config/initializers/ams.rb
+--------------
+ActiveModelSerializers.config.adapter = :json
+ActiveModel::Serializer.config.default_includes = '**'
+---------------
+
+rails g serializer Category
+rails g serializer Restaurant
+rails g serializer ProductCategory
+rails g serializer Product
+rails g serializer Order
