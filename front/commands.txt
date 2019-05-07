@@ -1,0 +1,10 @@
+yarn global add create-react-app
+
+create-react-app getfood
+
+yarn start
+
+yarn add react-router-dom
+yarn add node-sass
+yarn add bulma
+yarn add rbx
