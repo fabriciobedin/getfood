@@ -5,6 +5,7 @@ create-react-app getfood
 yarn start
 
 yarn add react-router-dom
+yarn add axios
 yarn add node-sass
 yarn add bulma
 yarn add rbx
